@@ -3,220 +3,144 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ねんどとメッシュ｜造形の勉強サイト</title>
-<meta name="description" content="フィギュア、3DCG、SFXなど、造形を学ぶ記録をまとめた勉強サイト。">
+<title>木と石のあいだ | 彫刻の勉強サイト</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --blue:#4169e1;
-  --blue-deep:#2b49b0;
-  --blue-pale:#dfe6fb;
-  --clay:#d4d6da;       /* 粘土グレー */
-  --clay-light:#e8e9ec;
-  --clay-dark:#8a8d94;
-  --ink:#2a2c31;
-  --paper:#f4f5f7;
-  --display:"Dela Gothic One","Zen Kaku Gothic New",sans-serif;
-  --body:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif;
+  --wood-dark:#3b2616;
+  --wood:#7a4e2d;
+  --wood-light:#b98a5e;
+  --stone-dark:#4a4d50;
+  --stone:#8c9093;
+  --stone-light:#d6d7d5;
+  --paper:#efeeeb;
+  --ink:#2a2420;
+  --serif:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
+  --sans:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:var(--body);color:var(--ink);background:var(--paper);line-height:1.85;font-size:16px}
+body{font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.9;font-size:16px}
 a{color:inherit}
-:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
-.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+a:focus-visible{outline:3px solid var(--wood-light);outline-offset:3px}
 
-/* ヘッダー */
-header{background:var(--ink);color:#fff}
-header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:14px;padding-bottom:14px}
-.logo{font-family:var(--display);font-size:1.15rem;text-decoration:none;letter-spacing:.04em}
-.logo span{color:#8fa7f0}
-nav ul{list-style:none;display:flex;gap:4px;flex-wrap:wrap}
-nav a{display:block;padding:6px 14px;text-decoration:none;font-size:.92rem;border-radius:3px;color:#d9dce3}
-nav a:hover{background:#3a3d44;color:#fff}
-nav a[aria-current="page"]{background:var(--blue);color:#fff}
+/* ヘッダー：左が木、右が石 */
+header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px 24px;padding:14px 5vw;background:linear-gradient(90deg,var(--wood-dark) 0%,var(--wood-dark) 50%,var(--stone-dark) 50%,var(--stone-dark) 100%);color:var(--paper)}
+.logo{font-family:var(--serif);font-weight:800;font-size:1.25rem;text-decoration:none;letter-spacing:.08em}
+nav ul{display:flex;gap:6px;list-style:none;flex-wrap:wrap}
+nav a{display:block;padding:6px 16px;text-decoration:none;font-weight:500;border-radius:2px}
+nav a:hover,nav a[aria-current="page"]{background:var(--paper);color:var(--wood-dark)}
 
-/* ヒーロー：粘土グレーの台座にワイヤーフレームの球 */
-.hero{background:var(--clay);border-bottom:6px solid var(--blue);overflow:hidden}
-.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:32px;padding-top:56px;padding-bottom:56px}
-.hero h1{font-family:var(--display);font-weight:400;font-size:clamp(2.2rem,6vw,3.8rem);line-height:1.2;color:var(--ink);letter-spacing:.02em}
-.hero h1 em{font-style:normal;color:var(--blue)}
-.hero .lead{margin-top:20px;max-width:30em;color:#3b3e45}
-.hero .tags{margin-top:24px;display:flex;gap:8px;flex-wrap:wrap;list-style:none}
-.hero .tags li{background:var(--paper);border:2px solid var(--ink);padding:2px 14px;font-weight:700;font-size:.9rem}
-.stage{display:flex;justify-content:center}
-.stage svg{width:100%;max-width:340px;height:auto}
+/* ヒーロー：木目と石肌を斜めに割る */
+.hero{position:relative;min-height:78vh;display:grid;align-items:center;padding:8vh 5vw;color:var(--paper);overflow:hidden;
+  background:
+    linear-gradient(112deg,transparent 0 54%,rgba(0,0,0,.25) 54% 54.4%,transparent 54.4%),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .22 0'/></filter><rect width='300' height='300' filter='url(%23n)'/></svg>") ;
+}
+.hero::before,.hero::after{content:"";position:absolute;inset:0;z-index:0}
+.hero::before{
+  background:repeating-linear-gradient(98deg,var(--wood) 0 7px,#6b4226 7px 11px,var(--wood) 11px 22px,#855635 22px 25px,var(--wood) 25px 41px,#5e3a20 41px 43px);
+  clip-path:polygon(0 0,57% 0,47% 100%,0 100%);
+}
+.hero::after{
+  background:linear-gradient(135deg,var(--stone) 0%,var(--stone-dark) 100%);
+  clip-path:polygon(57% 0,100% 0,100% 100%,47% 100%);
+  opacity:.97;
+}
+.hero>*{position:relative;z-index:1}
+.hero h1{font-family:var(--serif);font-weight:800;font-size:clamp(3.2rem,10vw,7.5rem);line-height:1.15;letter-spacing:.1em;text-shadow:0 3px 0 rgba(0,0,0,.35)}
+.hero .lead{margin-top:20px;max-width:30em;font-size:1.05rem;text-shadow:0 1px 0 rgba(0,0,0,.4)}
+.hero .lead strong{font-weight:700}
 
-/* セクション共通 */
-section{padding:64px 0}
-h2{font-family:var(--display);font-weight:400;font-size:1.7rem;line-height:1.4;margin-bottom:8px}
-.sec-note{color:#5b5e66;margin-bottom:32px;max-width:36em}
+main section{padding:72px 5vw;max-width:1040px;margin:0 auto}
+h2{font-family:var(--serif);font-weight:700;font-size:1.7rem;margin-bottom:24px;padding-left:16px;border-left:8px solid var(--wood);position:relative}
+h2::after{content:"";position:absolute;left:-8px;bottom:0;width:8px;height:50%;background:var(--stone)}
 
-/* 学ぶ分野 */
-.fields{list-style:none;border-top:2px solid var(--ink)}
-.fields li{display:grid;grid-template-columns:200px 1fr;gap:24px;padding:22px 0;border-bottom:1px solid var(--clay-dark);align-items:baseline}
-.fields .name{font-family:var(--display);font-size:1.5rem;color:var(--blue)}
-.fields .name small{display:block;font-family:var(--body);font-size:.8rem;color:var(--clay-dark);font-weight:500;margin-top:2px}
+.about p{max-width:36em}
+.about p+p{margin-top:1em}
 
-/* 進捗プレビュー */
-.progress{background:var(--clay-light)}
-.feed{list-style:none;max-width:640px;border:2px solid var(--ink);background:#fff}
-.feed li{padding:16px 20px;border-bottom:1px solid var(--clay)}
-.feed li:last-child{border-bottom:none}
-.feed time{display:block;font-size:.82rem;font-weight:700;color:var(--blue)}
-.feed p{margin-top:2px}
-.more{display:inline-block;margin-top:20px;padding:8px 22px;background:var(--blue);color:#fff;text-decoration:none;font-weight:700;border-radius:3px}
-.more:hover{background:var(--blue-deep)}
+/* ページ案内 */
+.links{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.links a{display:block;padding:26px 24px;text-decoration:none;color:var(--paper);border-radius:3px}
+.links a:nth-child(odd){background:var(--wood)}
+.links a:nth-child(even){background:var(--stone-dark)}
+.links a:hover{outline:3px solid var(--wood-light);outline-offset:-6px}
+.links b{display:block;font-family:var(--serif);font-size:1.3rem;margin-bottom:4px}
+.links span{font-size:.92rem;opacity:.92}
 
-/* コラム案内 */
-.column .box{display:grid;grid-template-columns:1fr 1fr;gap:0;border:2px solid var(--ink)}
-.column .box > div{padding:28px}
-.column .box .l{background:var(--blue);color:#fff}
-.column .box .l h3{font-family:var(--display);font-weight:400;font-size:1.3rem;margin-bottom:8px}
-.column .box .r{background:#fff}
-.column .box .r ul{list-style:none}
-.column .box .r li{padding:6px 0;border-bottom:1px dashed var(--clay-dark)}
-.column .box .r li:last-child{border-bottom:none}
-.column a.go{color:#fff;font-weight:700}
+/* 最新の日記 */
+.latest{background:var(--stone-light);max-width:none!important}
+.latest .inner{max-width:1040px;margin:0 auto}
+.log{list-style:none;max-width:36em}
+.log li{padding:16px 0;border-bottom:1px solid var(--stone)}
+.log time{display:block;font-size:.85rem;color:var(--wood);font-weight:700}
+.more{display:inline-block;margin-top:20px;font-weight:700;color:var(--wood-dark)}
 
-footer{background:var(--ink);color:#b8bcc6;padding:28px 0;font-size:.85rem}
-footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+footer{background:var(--wood-dark);color:var(--stone-light);text-align:center;padding:28px 5vw;font-size:.85rem;border-top:6px solid var(--stone)}
 
-@media (max-width:760px){
-  .hero .wrap{grid-template-columns:1fr;padding-top:40px;padding-bottom:40px}
-  .stage{order:-1}
-  .stage svg{max-width:220px}
-  .fields li{grid-template-columns:1fr;gap:4px}
-  .column .box{grid-template-columns:1fr}
+@media (max-width:640px){
+  .hero{min-height:70vh}
+  .hero::before{clip-path:polygon(0 0,100% 0,100% 45%,0 55%)}
+  .hero::after{clip-path:polygon(0 55%,100% 45%,100% 100%,0 100%)}
+  header{background:var(--wood-dark)}
+  main section{padding:52px 6vw}
 }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="wrap">
-    <a class="logo" href="index.html">ねんどと<span>メッシュ</span></a>
-    <nav aria-label="メインメニュー">
-      <ul>
-        <li><a href="index.html" aria-current="page">ホーム</a></li>
-        <li><a href="blog.html">ブログ</a></li>
-        <li><a href="column.html">コラム</a></li>
-        <li><a href="about.html">このサイトについて</a></li>
-      </ul>
-    </nav>
-  </div>
+  <a class="logo" href="index.html">木と石のあいだ</a>
+  <nav aria-label="メイン">
+    <ul>
+      <li><a href="index.html" aria-current="page">トップ</a></li>
+      <li><a href="blog.html">ブログ</a></li>
+      <li><a href="gallery.html">ギャラリー</a></li>
+      <li><a href="about.html">このサイトについて</a></li>
+    </ul>
+  </nav>
 </header>
 
-<main>
-  <div class="hero">
-    <div class="wrap">
-      <div>
-        <h1>かたちを、<br>手と画面で<em>つくる</em>。</h1>
-        <p class="lead">フィギュアの原型づくりも、3DCGのモデリングも、SFXの特殊造形も。かたちをつくる技術を、少しずつ学んでいる記録です。</p>
-        <ul class="tags" aria-label="扱う分野">
-          <li>フィギュア</li>
-          <li>3DCG</li>
-          <li>SFX</li>
-        </ul>
-      </div>
-      <div class="stage">
-        <!-- ターンテーブルのように回るワイヤーフレームの球 -->
-        <svg id="sphere" viewBox="0 0 240 270" role="img" aria-label="ゆっくり回転するワイヤーフレームの球">
-          <ellipse cx="120" cy="240" rx="90" ry="14" fill="#8a8d94" opacity=".45"/>
-          <ellipse cx="120" cy="232" rx="78" ry="10" fill="#f4f5f7" stroke="#2a2c31" stroke-width="2"/>
-          <g fill="none" stroke="#4169e1" stroke-width="2">
-            <circle cx="120" cy="120" r="84" stroke="#2a2c31" stroke-width="2.5"/>
-            <!-- 緯線 -->
-            <ellipse cx="120" cy="120" rx="84" ry="14"/>
-            <ellipse cx="120" cy="86" rx="76.8" ry="12.8"/>
-            <ellipse cx="120" cy="154" rx="76.8" ry="12.8"/>
-            <ellipse cx="120" cy="58" rx="58.8" ry="9.8"/>
-            <ellipse cx="120" cy="182" rx="58.8" ry="9.8"/>
-            <!-- 経線（回転して見える） -->
-            <ellipse cx="120" cy="120" rx="84" ry="84"><animate attributeName="rx" values="84;59;0;59;84" dur="12s" begin="0s" repeatCount="indefinite"/></ellipse>
-            <ellipse cx="120" cy="120" rx="84" ry="84"><animate attributeName="rx" values="84;59;0;59;84" dur="12s" begin="-2s" repeatCount="indefinite"/></ellipse>
-            <ellipse cx="120" cy="120" rx="84" ry="84"><animate attributeName="rx" values="84;59;0;59;84" dur="12s" begin="-4s" repeatCount="indefinite"/></ellipse>
-            <ellipse cx="120" cy="120" rx="84" ry="84"><animate attributeName="rx" values="84;59;0;59;84" dur="12s" begin="-6s" repeatCount="indefinite"/></ellipse>
-            <ellipse cx="120" cy="120" rx="84" ry="84"><animate attributeName="rx" values="84;59;0;59;84" dur="12s" begin="-8s" repeatCount="indefinite"/></ellipse>
-            <ellipse cx="120" cy="120" rx="84" ry="84"><animate attributeName="rx" values="84;59;0;59;84" dur="12s" begin="-10s" repeatCount="indefinite"/></ellipse>
-          </g>
-        </svg>
-      </div>
-    </div>
+<div class="hero">
+  <div>
+    <h1>木を彫り、<br>石を刻む。</h1>
+    <p class="lead">彫刻を少しずつ勉強している記録のサイトです。<strong>木彫り</strong>と<strong>石彫</strong>、立体のかたちについて学んだことを書いています。</p>
   </div>
+</div>
 
-  <section aria-labelledby="fields-title">
-    <div class="wrap">
-      <h2 id="fields-title">学んでいること</h2>
-      <p class="sec-note">素材も道具もちがうけれど、「立体を考える」という芯は同じ。三つの分野を行き来しながら学んでいます。</p>
-      <ul class="fields">
-        <li>
-          <div class="name">フィギュア<small>原型・彩色</small></div>
-          <p>粘土やパテで形を起こし、塗装で仕上げる。プロポーションの取り方や、パーツ分割の考え方を勉強中です。</p>
-        </li>
-        <li>
-          <div class="name">3DCG<small>モデリング・レンダリング</small></div>
-          <p>ポリゴンの流れ（トポロジー）やスカルプト、質感の設定など。画面の中で形をつくる基本を押さえていきます。</p>
-        </li>
-        <li>
-          <div class="name">SFX<small>特殊造形・特殊効果</small></div>
-          <p>映画やドラマの現場で使われる、特殊メイクや造形物の技法。素材の性質を知るところから学んでいます。</p>
-        </li>
-      </ul>
-    </div>
+<main>
+  <section class="about" id="intro">
+    <h2>ようこそ</h2>
+    <p>木は温かく、刃を入れると繊維に沿って割れていきます。石は冷たく、少しずつ削ることでしか形になりません。素材によって彫り方も考え方も違う、そこが彫刻のおもしろいところです。</p>
+    <p>このサイトでは、勉強の進み具合を日記として残し、描いた漫画やイラストもあわせて載せていきます。</p>
   </section>
 
-  <section class="progress" aria-labelledby="progress-title">
-    <div class="wrap">
-      <h2 id="progress-title">最近の勉強記録</h2>
-      <p class="sec-note">ブログに書いている、日々の進捗の抜粋です。</p>
-      <!-- サンプル文です。blog.html の内容に合わせて差し替えてください -->
-      <ul class="feed">
-        <li><time datetime="2026-10-09">2026.10.09</time><p>球体から顔の大まかな塊をつくる練習。目の位置が思ったより上だった。</p></li>
-        <li><time datetime="2026-10-07">2026.10.07</time><p>3DCGでエッジループの流れを意識して、口まわりをやり直した。</p></li>
-        <li><time datetime="2026-10-04">2026.10.04</time><p>SFXの本を読んだ。シリコンとラテックスで質感がこんなに違うとは。</p></li>
-      </ul>
-      <a class="more" href="blog.html">ブログをもっと見る</a>
-    </div>
-  </section>
-
-  <section class="column" aria-labelledby="column-title">
-    <div class="wrap">
-      <h2 id="column-title">コラムと作品</h2>
-      <p class="sec-note">勉強のあいまに描いた漫画やイラスト、4コマ、ちょっとしたコラムを置いています。</p>
-      <div class="box">
-        <div class="l">
-          <h3>造形の「おもしろい」を、読みもので。</h3>
-          <p>難しい話は少なめに、気軽に読めるものを集めました。</p>
-          <p style="margin-top:14px"><a class="go" href="column.html">コラムページへ</a></p>
-        </div>
-        <div class="r">
-          <ul>
-            <li>関連する漫画・イラスト</li>
-            <li>勉強中の失敗をネタにした4コマ</li>
-            <li>造形にまつわる軽いコラム</li>
-          </ul>
-        </div>
-      </div>
+  <section id="pages">
+    <h2>サイトの案内</h2>
+    <div class="links">
+      <a href="blog.html"><b>ブログ</b><span>勉強の進み具合を日記で</span></a>
+      <a href="gallery.html"><b>ギャラリー</b><span>漫画やイラストの作品</span></a>
+      <a href="about.html"><b>このサイトについて</b><span>運営者とサイトの紹介</span></a>
     </div>
   </section>
 </main>
 
-<footer>
-  <div class="wrap">
-    <span>&copy; 2026 ねんどとメッシュ</span>
-    <span><a href="about.html">このサイトについて</a></span>
+<section class="latest" aria-labelledby="latest-title" style="padding:72px 5vw">
+  <div class="inner">
+    <h2 id="latest-title">最近の日記</h2>
+    <ul class="log">
+      <li><time datetime="2026-10-18">2026.10.18</time>木彫りと石彫の違いを調べた。木は足していくことができず、石も同じ。どちらも引き算の芸術だと分かった。</li>
+      <li><time datetime="2026-10-17">2026.10.17</time>彫刻の基本の道具を整理した。のみ、小刀、槌。名前と使い分けをノートにまとめた。</li>
+    </ul>
+    <a class="more" href="blog.html">日記をすべて読む</a>
   </div>
+</section>
+
+<footer>
+  <p>&copy; 2026 木と石のあいだ</p>
 </footer>
 
-<script>
-// 動きを減らす設定の人には、球の回転を止める
-if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-  var s = document.getElementById('sphere');
-  if (s && s.pauseAnimations) { s.pauseAnimations(); }
-}
-</script>
 </body>
 </html>
