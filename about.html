@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>このサイトについて | 木と石のあいだ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --wood-dark:#3b2616;
+  --wood:#7a4e2d;
+  --wood-light:#b98a5e;
+  --stone-dark:#4a4d50;
+  --stone:#8c9093;
+  --stone-light:#d6d7d5;
+  --paper:#efeeeb;
+  --ink:#2a2420;
+  --serif:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
+  --sans:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.9;font-size:16px}
+a{color:inherit}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--wood-light);outline-offset:3px}
+
+header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px 24px;padding:14px 5vw;background:linear-gradient(90deg,var(--wood-dark) 0%,var(--wood-dark) 50%,var(--stone-dark) 50%,var(--stone-dark) 100%);color:var(--paper)}
+.logo{font-family:var(--serif);font-weight:800;font-size:1.25rem;text-decoration:none;letter-spacing:.08em}
+nav ul{display:flex;gap:6px;list-style:none;flex-wrap:wrap}
+nav a{display:block;padding:6px 16px;text-decoration:none;font-weight:500;border-radius:2px}
+nav a:hover,nav a[aria-current="page"]{background:var(--paper);color:var(--wood-dark)}
+
+.page-title{position:relative;padding:48px 5vw;color:var(--paper);overflow:hidden}
+.page-title::before,.page-title::after{content:"";position:absolute;inset:0}
+.page-title::before{
+  background:repeating-linear-gradient(98deg,var(--wood) 0 7px,#6b4226 7px 11px,var(--wood) 11px 22px,#855635 22px 25px,var(--wood) 25px 41px,#5e3a20 41px 43px);
+  clip-path:polygon(0 0,60% 0,50% 100%,0 100%);
+}
+.page-title::after{background:linear-gradient(135deg,var(--stone),var(--stone-dark));clip-path:polygon(60% 0,100% 0,100% 100%,50% 100%)}
+.page-title h1{position:relative;z-index:1;font-family:var(--serif);font-weight:800;font-size:clamp(2rem,6vw,3.4rem);letter-spacing:.12em;text-shadow:0 2px 0 rgba(0,0,0,.35)}
+.page-title p{position:relative;z-index:1;text-shadow:0 1px 0 rgba(0,0,0,.4)}
+
+main{max-width:900px;margin:0 auto;padding:24px 5vw 72px}
+section{padding-top:48px}
+h2{font-family:var(--serif);font-weight:700;font-size:1.6rem;margin-bottom:20px;padding-left:16px;border-left:8px solid var(--wood);position:relative}
+h2::after{content:"";position:absolute;left:-8px;bottom:0;width:8px;height:50%;background:var(--stone)}
+.text p{max-width:36em}
+.text p+p{margin-top:1em}
+
+/* リンクカード */
+.link-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+.link-card{display:flex;align-items:center;gap:14px;padding:16px 18px;text-decoration:none;color:var(--paper);border-radius:3px;background:var(--wood)}
+.link-card:nth-child(even){background:var(--stone-dark)}
+.link-card:hover{outline:3px solid var(--wood-light);outline-offset:-6px}
+.link-icon{flex-shrink:0;width:44px;height:44px;display:grid;place-items:center;font-size:1.4rem;background:rgba(255,255,255,.12);border-radius:3px}
+.link-name{display:block;font-family:var(--serif);font-weight:700;line-height:1.4}
+.link-desc{display:block;font-size:.82rem;opacity:.9;line-height:1.5}
+.link-arrow{margin-left:auto;font-size:1.3rem;opacity:.7}
+
+/* フォーム */
+.form-card{background:#fbfbf9;border:2px solid var(--stone);border-left:8px solid var(--wood);border-radius:4px;padding:28px 28px}
+.form-intro{margin-bottom:20px;font-size:.95rem}
+.form-group{margin-bottom:18px}
+.form-label{display:block;font-weight:700;font-size:.9rem;margin-bottom:6px}
+.required{color:#9b2c2c}
+.form-input,.form-textarea{width:100%;font-family:var(--sans);font-size:1rem;color:var(--ink);background:#fff;border:2px solid var(--stone);border-radius:3px;padding:10px 12px}
+.form-input:focus,.form-textarea:focus{border-color:var(--wood)}
+.form-textarea{min-height:140px;resize:vertical}
+.field-error{display:block;font-size:.8rem;color:#9b2c2c}
+.form-submit{font-family:var(--serif);font-weight:700;font-size:1rem;letter-spacing:.1em;color:var(--paper);background:var(--wood);border:none;border-radius:3px;padding:11px 30px;cursor:pointer}
+.form-submit:hover{background:var(--wood-dark)}
+.form-submit:disabled{opacity:.5;cursor:not-allowed}
+.form-success{background:var(--stone-light);border-left:6px solid var(--wood);padding:14px 18px;margin-bottom:20px;font-weight:700}
+.form-error-global{background:#f3dcdc;border-left:6px solid #9b2c2c;padding:12px 16px;margin-bottom:16px;font-size:.9rem}
+
+.back-link{display:inline-block;margin-top:40px;padding:8px 18px;text-decoration:none;font-weight:700;color:var(--wood-dark);border:2px solid var(--wood)}
+.back-link:hover{background:var(--wood);color:var(--paper)}
+
+footer{background:var(--wood-dark);color:var(--stone-light);padding:28px 5vw;font-size:.8rem;border-top:6px solid var(--stone);line-height:1.9;text-align:center}
+footer p{max-width:800px;margin:0 auto 8px}
+
+@media (max-width:640px){
+  header{background:var(--wood-dark)}
+  .link-grid{grid-template-columns:1fr}
+  .form-card{padding:20px 16px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="index.html">木と石のあいだ</a>
+  <nav aria-label="メイン">
+    <ul>
+      <li><a href="index.html">トップ</a></li>
+      <li><a href="blog.html">ブログ</a></li>
+      <li><a href="gallery.html">ギャラリー</a></li>
+      <li><a href="about.html" aria-current="page">このサイトについて</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="page-title">
+  <h1>このサイトについて</h1>
+  <p>サイトの紹介と、運営者へのご連絡先です。</p>
+</div>
+
+<main>
+  <section class="text" id="site">
+    <h2>サイトについて</h2>
+    <p>「木と石のあいだ」は、彫刻を少しずつ勉強している記録のサイトです。木彫りと石彫、立体のかたちについて学んだことを、ブログに日記として残しています。</p>
+    <p>ギャラリーには、漫画やイラストの作品を載せています。</p>
+  </section>
+
+  <section class="text" id="owner">
+    <h2>運営者</h2>
+    <p>Azalea72。漫画とイラストを描いています。ほかの創作活動は、下のリンクからご覧いただけます。</p>
+  </section>
+
+  <section id="links">
+    <h2>リンク</h2>
+    <div class="link-grid">
+      <a class="link-card" href="https://rookie.shonenjump.com/users/14728546961183734555" target="_blank" rel="noopener">
+        <span class="link-icon" aria-hidden="true">📚</span>
+        <span><span class="link-name">ジャンプルーキー</span><span class="link-desc">オリジナル漫画を掲載中</span></span>
+        <span class="link-arrow" aria-hidden="true">›</span>
+      </a>
+      <a class="link-card" href="https://www.pixiv.net/users/105728284" target="_blank" rel="noopener">
+        <span class="link-icon" aria-hidden="true">🎨</span>
+        <span><span class="link-name">Pixiv</span><span class="link-desc">イラストを掲載中</span></span>
+        <span class="link-arrow" aria-hidden="true">›</span>
+      </a>
+      <a class="link-card" href="https://bsky.app/profile/azaleaazalea88.bsky.social" target="_blank" rel="noopener">
+        <span class="link-icon" aria-hidden="true">🦋</span>
+        <span><span class="link-name">Bluesky</span><span class="link-desc">近況・作品のお知らせ</span></span>
+        <span class="link-arrow" aria-hidden="true">›</span>
+      </a>
+      <a class="link-card" href="https://www.youtube.com/@LilyPopins0512" target="_blank" rel="noopener">
+        <span class="link-icon" aria-hidden="true">🎬</span>
+        <span><span class="link-name">YouTube（リリポピ）</span><span class="link-desc">動画チャンネル</span></span>
+        <span class="link-arrow" aria-hidden="true">›</span>
+      </a>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>お問い合わせ</h2>
+    <div class="form-card">
+      <p class="form-intro">ご質問・ご感想などはこちらからどうぞ。<br>Gmailで受け取り、返信いたします。</p>
+
+      <div data-fs-success class="form-success" style="display:none;">メッセージを送信しました。ありがとうございます！</div>
+      <div data-fs-error class="form-error-global" style="display:none;"></div>
+
+      <form id="contact-form" action="https://formspree.io/f/maqvpvoz" method="POST">
+        <div class="form-group">
+          <label class="form-label" for="name">お名前</label>
+          <input class="form-input" type="text" id="name" name="name" placeholder="お名前（ニックネームでも大丈夫です）">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="email">メールアドレス <span class="required">*</span></label>
+          <input class="form-input" type="email" id="email" name="email" data-fs-field placeholder="example@email.com" required>
+          <span data-fs-error="email" class="field-error"></span>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="message">メッセージ <span class="required">*</span></label>
+          <textarea class="form-textarea" id="message" name="message" data-fs-field placeholder="メッセージを入力してください" rows="6" required></textarea>
+          <span data-fs-error="message" class="field-error"></span>
+        </div>
+        <button class="form-submit" type="submit" data-fs-submit-btn>送信する</button>
+      </form>
+    </div>
+  </section>
+
+  <a class="back-link" href="index.html">トップページに戻る</a>
+</main>
+
+<footer>
+  <p>当サイトに掲載されている画像・文章・作品について、AI学習への利用、トレース（トレパク）、無断転載・転載、二次利用を禁止します。スクリーンショットの転載・無断引用はご遠慮ください。</p>
+  <p>Please refrain from using any images, text, or works on this website for AI training, tracing, unauthorized reproduction, redistribution, or secondary use.</p>
+  <p>&copy; 2026 木と石のあいだ</p>
+</footer>
+
+<script>
+  window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+  formspree('initForm', { formElement: '#contact-form', formId: 'maqvpvoz' });
+</script>
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+
+</body>
+</html>
