@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>彫刻に関する人物 | 木と石のあいだ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --wood-dark:#3b2616;
+  --wood:#7a4e2d;
+  --wood-light:#b98a5e;
+  --stone-dark:#4a4d50;
+  --stone:#8c9093;
+  --stone-light:#d6d7d5;
+  --paper:#efeeeb;
+  --ink:#2a2420;
+  --serif:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
+  --sans:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.9;font-size:16px}
+a{color:inherit}
+a:focus-visible{outline:3px solid var(--wood-light);outline-offset:3px}
+
+header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px 24px;padding:14px 5vw;background:linear-gradient(90deg,var(--wood-dark) 0%,var(--wood-dark) 50%,var(--stone-dark) 50%,var(--stone-dark) 100%);color:var(--paper)}
+.logo{font-family:var(--serif);font-weight:800;font-size:1.25rem;text-decoration:none;letter-spacing:.08em}
+nav ul{display:flex;gap:6px;list-style:none;flex-wrap:wrap}
+nav a{display:block;padding:6px 16px;text-decoration:none;font-weight:500;border-radius:2px}
+nav a:hover,nav a[aria-current="page"]{background:var(--paper);color:var(--wood-dark)}
+
+.page-title{position:relative;padding:48px 5vw;color:var(--paper);overflow:hidden}
+.page-title::before,.page-title::after{content:"";position:absolute;inset:0}
+.page-title::before{
+  background:repeating-linear-gradient(98deg,var(--wood) 0 7px,#6b4226 7px 11px,var(--wood) 11px 22px,#855635 22px 25px,var(--wood) 25px 41px,#5e3a20 41px 43px);
+  clip-path:polygon(0 0,60% 0,50% 100%,0 100%);
+}
+.page-title::after{background:linear-gradient(135deg,var(--stone),var(--stone-dark));clip-path:polygon(60% 0,100% 0,100% 100%,50% 100%)}
+.page-title h1{position:relative;z-index:1;font-family:var(--serif);font-weight:800;font-size:clamp(2rem,6vw,3.4rem);letter-spacing:.12em;text-shadow:0 2px 0 rgba(0,0,0,.35)}
+.page-title p{position:relative;z-index:1;text-shadow:0 1px 0 rgba(0,0,0,.4)}
+
+main{max-width:960px;margin:0 auto;padding:24px 5vw 72px}
+section{padding-top:48px}
+h2{font-family:var(--serif);font-weight:700;font-size:1.6rem;margin-bottom:24px;padding-left:16px;border-left:8px solid var(--wood);position:relative}
+h2::after{content:"";position:absolute;left:-8px;bottom:0;width:8px;height:50%;background:var(--stone)}
+
+.people{display:grid;grid-template-columns:repeat(auto-fill,minmax(400px,1fr));gap:22px}
+.card{background:#fbfbf9;border:2px solid var(--stone);border-top:8px solid var(--wood);border-radius:3px;padding:18px 22px 20px}
+.card:nth-child(even){border-top-color:var(--stone-dark)}
+.card dl{display:grid;grid-template-columns:4.5em 1fr;gap:6px 12px}
+.card dt{font-size:.82rem;font-weight:700;color:var(--wood);padding-top:.25em;line-height:1.6}
+.card dd{line-height:1.8}
+.card dd.name{font-family:var(--serif);font-weight:800;font-size:1.25rem;line-height:1.5}
+.card dd.name small{display:block;font-family:var(--sans);font-weight:400;font-size:.78rem;color:var(--stone-dark)}
+.card dd.year{font-weight:700}
+
+.back-link{display:inline-block;margin-top:48px;padding:8px 18px;text-decoration:none;font-weight:700;color:var(--wood-dark);border:2px solid var(--wood)}
+.back-link:hover{background:var(--wood);color:var(--paper)}
+
+footer{background:var(--wood-dark);color:var(--stone-light);text-align:center;padding:28px 5vw;font-size:.85rem;border-top:6px solid var(--stone)}
+
+@media (max-width:640px){
+  header{background:var(--wood-dark)}
+  .people{grid-template-columns:1fr}
+  .card{padding:16px 16px 18px}
+  .card dl{grid-template-columns:3.8em 1fr}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="index.html">木と石のあいだ</a>
+  <nav aria-label="メイン">
+    <ul>
+      <li><a href="index.html">トップ</a></li>
+      <li><a href="blog.html">ブログ</a></li>
+      <li><a href="column.html" aria-current="page">コラム</a></li>
+      <li><a href="gallery.html">ギャラリー</a></li>
+      <li><a href="about.html">このサイトについて</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="page-title">
+  <h1>彫刻に関する人物</h1>
+  <p>西洋と日本の彫刻家を、没年の古い順に並べています。</p>
+</div>
+
+<main>
+  <section id="west">
+    <h2>西洋の彫刻家</h2>
+    <div class="people">
+
+      <article class="card"><dl>
+        <dt>名前</dt><dd class="name">ペイディアス<small>Pheidias</small></dd>
+        <dt>没年</dt><dd class="year">紀元前430年ごろ</dd>
+        <dt>解説</dt><dd>古代ギリシャ、アテネの全盛期を代表する彫刻家。パルテノン神殿の造営に関わり、彫刻装飾を統括したと伝わる。</dd>
+        <dt>代表作</dt><dd>アテナ・パルテノス像、オリンピアのゼウス像（どちらも失われ、記録や模刻で伝わる）</dd>
+      </dl></article>
+
+      <article class="card"><dl>
+        <dt>名前</dt><dd class="name">ドナテッロ<small>Donatello</small></dd>
+        <dt>没年</dt><dd class="year">1466年</dd>
+        <dt>解説</dt><dd>初期ルネサンスを代表するフィレンツェの彫刻家。古代以来となる、単独で立つ裸体のブロンズ像を作ったと言われる。</dd>
+        <dt>代表作</dt><dd>ダビデ像（ブロンズ）、ガッタメラータ将軍騎馬像</dd>
+      </dl></article>
+
+      <article class="card"><dl>
+        <dt>名前</dt><dd class="name">ミケランジェロ・ブオナローティ<small>Michelangelo Buonarroti</small></dd>
+        <dt>没年</dt><dd class="year">1564年</dd>
+        <dt>解説</dt><dd>ルネサンス盛期の巨匠。彫刻のほか絵画や建築でも知られる。大理石の塊の中から像を取り出す、という考え方で語られる。</dd>
+        <dt>代表作</dt><dd>ダビデ像、ピエタ（サン・ピエトロ大聖堂）、モーセ像</dd>
+      </dl></article>
+
+      <article class="card"><dl>
+        <dt>名前</dt><dd class="name">ジャン・ロレンツォ・ベルニーニ<small>Gian Lorenzo Bernini</small></dd>
+        <dt>没年</dt><dd class="year">1680年</dd>
+        <dt>解説</dt><dd>バロック彫刻を代表する彫刻家。劇的な瞬間をとらえ、大理石を柔らかな肌のように見せる技で知られる。</dd>
+        <dt>代表作</dt><dd>アポロとダフネ、聖テレジアの法悦</dd>
+      </dl></article>
+
+      <article class="card"><dl>
+        <dt>名前</dt><dd class="name">オーギュスト・ロダン<small>Auguste Rodin</small></dd>
+        <dt>没年</dt><dd class="year">1917年</dd>
+        <dt>解説</dt><dd>フランスの彫刻家で、近代彫刻の父と呼ばれる。人物の内面や動きを、荒々しい表面の質感で表した。</dd>
+        <dt>代表作</dt><dd>考える人、地獄の門、カレーの市民</dd>
+      </dl></article>
+
+      <article class="card"><dl>
+        <dt>名前</dt><dd class="name">カミーユ・クローデル<small>Camille Claudel</small></dd>
+        <dt>没年</dt><dd class="year">1943年</dd>
+        <dt>解説</dt><dd>フランスの彫刻家。ロダンの弟子として工房で働き、のちに独自の表現を切り開いた。</dd>
+        <dt>代表作</dt><dd>ワルツ、分別盛り</dd>
+      </dl></article>
+
+      <article class="card"><dl>
+        <dt>名前</dt><dd class="name">コンスタンティン・ブランクーシ<small>Constantin Brâncuși</small></dd>
+        <dt>没年</dt><dd class="year">1957年</dd>
+        <dt>解説</dt><dd>ルーマニア出身でパリを拠点にした彫刻家。形を極限まで単純にして、素材そのものの美しさを見せた。</dd>
+        <dt>代表作</dt><dd>接吻、空間の鳥、無限柱</dd>
+      </dl></article>
+
+      <article class="card"><dl>
+        <dt>名前</dt><dd class="name">アルベルト・ジャコメッティ<small>Alberto Giacometti</small></dd>
+        <dt>没年</dt><dd class="year">1966年</dd>
+        <dt>解説</dt><dd>スイス出身の彫刻家。極端に細く引き伸ばされた人物像で知られ、人間の孤独や存在の不確かさを表した。</dd>
+        <dt>代表作</dt><dd>歩く男、指差す男</dd>
+      </dl></article>
+
+    </div>
+  </section>
+
+  <section id="japan">
+    <h2>日本の彫刻家</h2>
+    <div class="people">
+
+      <article class="card"><dl>
+        <dt>名前</dt><dd class="name">運慶<small>うんけい</small></dd>
+        <dt>没年</dt><dd class="year">1223年</dd>
+        <dt>解説</dt><dd>鎌倉時代を代表する仏師。力強く写実的な作風で知られ、慶派を率いた。</dd>
+        <dt>代表作</dt><dd>東大寺南大門の金剛力士像（快慶らと共作）、興福寺の無著・世親像、円成寺の大日如来坐像</dd>
+      </dl></article>
+
+      <article class="card"><dl>
+        <dt>名前</dt><dd class="name">快慶<small>かいけい</small></dd>
+        <dt>没年</dt><dd class="year">不詳</dd>
+        <dt>解説</dt><dd>運慶と並ぶ鎌倉時代の仏師。整った優美な表情の仏像を多く手がけた。</dd>
+        <dt>代表作</dt><dd>東大寺南大門の金剛力士像（運慶らと共作）、東大寺の僧形八幡神坐像、醍醐寺の弥勒菩薩坐像</dd>
+      </dl></article>
+
+      <article class="card"><dl>
+        <dt>名前</dt><dd class="name">円空<small>えんくう</small></dd>
+        <dt>没年</dt><dd class="year">1695年</dd>
+        <dt>解説</dt><dd>江戸時代前期の僧。諸国を旅しながら、鉈などで荒々しく彫った素朴な木彫の仏像（円空仏）を各地に残した。</dd>
+        <dt>代表作</dt><dd>両面宿儺坐像（岐阜・千光寺）、各地に残る円空仏</dd>
+      </dl></article>
+
+      <article class="card"><dl>
+        <dt>名前</dt><dd class="name">木喰<small>もくじき</small></dd>
+        <dt>没年</dt><dd class="year">1810年</dd>
+        <dt>解説</dt><dd>江戸時代後期の僧。諸国を巡って木彫の仏像を残した。穏やかな微笑みの表情から「微笑仏」と呼ばれる。</dd>
+        <dt>代表作</dt><dd>各地の寺に残る木喰仏（微笑仏）</dd>
+      </dl></article>
+
+      <article class="card"><dl>
+        <dt>名前</dt><dd class="name">荻原守衛（碌山）<small>おぎわら もりえ（ろくざん）</small></dd>
+        <dt>没年</dt><dd class="year">1910年</dd>
+        <dt>解説</dt><dd>日本の近代彫刻の先駆者。フランスでロダンの作品に感銘を受け、内面を表す彫刻を日本に伝えた。</dd>
+        <dt>代表作</dt><dd>女、坑夫、文覚</dd>
+      </dl></article>
+
+      <article class="card"><dl>
+        <dt>名前</dt><dd class="name">高村光雲<small>たかむら こううん</small></dd>
+        <dt>没年</dt><dd class="year">1934年</dd>
+        <dt>解説</dt><dd>明治から昭和にかけての木彫の大家。伝統的な木彫に写実を取り入れ、近代木彫の礎を築いた。</dd>
+        <dt>代表作</dt><dd>老猿、楠木正成像（皇居外苑）、西郷隆盛像（上野公園）</dd>
+      </dl></article>
+
+      <article class="card"><dl>
+        <dt>名前</dt><dd class="name">高村光太郎<small>たかむら こうたろう</small></dd>
+        <dt>没年</dt><dd class="year">1956年</dd>
+        <dt>解説</dt><dd>高村光雲の長男で、彫刻家であり詩人。ロダンの影響を受けた作品を残した。</dd>
+        <dt>代表作</dt><dd>手、乙女の像（十和田湖）</dd>
+      </dl></article>
+
+      <article class="card"><dl>
+        <dt>名前</dt><dd class="name">岡本太郎<small>おかもと たろう</small></dd>
+        <dt>没年</dt><dd class="year">1996年</dd>
+        <dt>解説</dt><dd>パリで学んだ芸術家。絵画や彫刻、文章など幅広く活動し、大胆で力強い造形で知られる。</dd>
+        <dt>代表作</dt><dd>太陽の塔、座ることを拒否する椅子</dd>
+      </dl></article>
+
+    </div>
+  </section>
+
+  <a class="back-link" href="column.html">コラムに戻る</a>
+</main>
+
+<footer>
+  <p>&copy; 2026 木と石のあいだ</p>
+</footer>
+
+</body>
+</html>
